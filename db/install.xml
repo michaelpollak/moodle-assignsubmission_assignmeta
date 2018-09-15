@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/assign/submission/assignmeta/db" VERSION="20120423" COMMENT="XMLDB file for Moodle mod/assign/submission/assignmeta"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="assignsubmission_assignmeta" COMMENT="Info about assignmeta submission">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="assignment" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="submission" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="title" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Text of title field."/>
+        <FIELD NAME="meta1" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Metadata 1."/>
+        <FIELD NAME="meta2" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Metadata 2."/>
+        <FIELD NAME="meta3" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Metadata 3."/>
+        <FIELD NAME="meta4" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Metadata 4."/>
+        <FIELD NAME="meta5" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Metadata 5."/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="The unique id for this assignmeta submission."/>
+        <KEY NAME="assignment" TYPE="foreign" FIELDS="assignment" REFTABLE="assign" REFFIELDS="id" COMMENT="The assignment instance this online text submission relates to."/>
+        <KEY NAME="submission" TYPE="foreign" FIELDS="submission" REFTABLE="assign_submission" REFFIELDS="id" COMMENT="The submission this online text submission relates to."/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>
